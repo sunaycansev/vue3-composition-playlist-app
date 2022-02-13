@@ -5,7 +5,6 @@ import { collection, orderBy, query, onSnapshot } from "firebase/firestore";
 const useGetCollection = (collectionName) => {
   const documents = ref(null);
   const error = ref(null);
-
   // register the firestore collection reference
   // const colRef = collection(db, collectionName);
   let collectionRef = query(
