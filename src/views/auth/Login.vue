@@ -14,14 +14,16 @@
 <script setup>
 import useLogin from "../../composables/useLogin";
 import { ref } from "vue";
+import { useRouter } from "vue-router";
 
 const email = ref(null);
 const password = ref(null);
 
 const { error, login, isPending } = useLogin();
-
+const router = useRouter();
 const handleSubmit = async () => {
   const res = await login(email.value, password.value);
+  router.push("/");
   if (!error.value) {
     console.log("user logged in");
     console.log("res", res);
